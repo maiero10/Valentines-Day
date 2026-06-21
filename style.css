@@ -47,6 +47,12 @@ h1 {
 .big-heart {
     font-size: 5em;
     color: red;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.big-heart:hover {
+    font-size: 8em;
+    color: rgb(255, 66, 66);
 }
 #btn-heart {
     background-color: transparent;
