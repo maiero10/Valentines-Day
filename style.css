@@ -290,7 +290,6 @@ h1 {
 
     .wrapper {
         padding: 10px 15px;
-        overflow: hidden;
     }
 
     .big-heart {
@@ -299,7 +298,7 @@ h1 {
 
     .back-card {
         height: 100%;
-        overflow-y: auto;
+        overflow-y: hidden;
         align-items: flex-start;
         justify-content: flex-start;
         padding: 20px 15px;
