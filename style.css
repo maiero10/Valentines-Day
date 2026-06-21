@@ -274,47 +274,8 @@ h1 {
 }
 
 /* ===== RESPONSIVO ===== */
-
-/* Tablets */
-@media (max-width: 768px) {
-    h1 {
-        font-size: 1.2em;
-        text-align: center;
-        padding: 0 20px;
-    }
-
-    .wrap {
-        width: 90%;
-        height: 450px;
-    }
-
-    .back-card p {
-        font-size: 0.9em;
-    }
-
-    .back-card button {
-        font-size: 0.9em;
-        margin: 2px;
-    }
-
-    #modal {
-        width: 90%;
-        max-width: 400px;
-        height: 480px;
-    }
-
-    .div-text {
-        top: 90px;
-        height: 220px;
-    }
-}
-
 /* Celulares */
 @media (max-width: 480px) {
-    * {
-        font-size: 1em;
-    }
-
     h1 {
         font-size: 1.8em;
         margin-top: 8%;
@@ -331,12 +292,14 @@ h1 {
     }
 
     .big-heart {
-        font-size: 4em;
+        font-size: 10em;
     }
 
     .back-card {overflow-y: auto;}
     .back-card p {
         font-size: 1.3em;
+        height: auto;
+        margin: 10px 0;
         line-height: 1.4;
         text-align: justify;
     }
