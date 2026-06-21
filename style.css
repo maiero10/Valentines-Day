@@ -1,0 +1,418 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: 0;
+    font-family: cursive;
+    font-size: 18px;
+}
+body {
+    background: rgb(238, 189, 253);
+    justify-items: center;
+    align-items: center;
+}
+h1 {
+    font-size: 1.5em;
+    margin-top: 5%;
+}
+.wrap {
+    position: fixed;
+    display: flex;
+    width: 60%;
+    height: 500px;
+    margin-top: 15px;
+    background: transparent;
+    border: none;
+    justify-content: center;
+    align-items: center;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+.wrapper {
+    position: absolute;
+    width: 90%;
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fdeebd;
+    border-radius: 30px;
+    padding: 10px 25px;
+    box-shadow: 6px 5px 20px 8px rgb(0, 0, 0, 0.4);
+    border: 3px double rgb(239, 172, 13);
+    transform-style: preserve-3d;
+    transition: all 0.6s ease-out;
+    transform-origin: center;
+}
+.wrapper.flipped {transform: rotateY(180deg);}
+.big-heart {
+    font-size: 5em;
+    color: red;
+}
+#btn-heart {
+    background-color: transparent;
+    border: none;
+}
+.front-card, .back-card {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    background-color: transparent;
+    border-radius: 30px;
+    padding: 10px 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    transform-style: preserve-3d;
+}
+.front-card {transform: rotateY(0deg);}
+.back-card{transform: rotateY(180deg);}
+.back-card p {
+    width: 90%;
+    height: auto;
+}
+.back-card button {
+    width: max-content;
+    height: auto;
+    padding: 0 5px;
+    background: #EEBDFD;
+    border: 2px solid #931ab8;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+.back-card button:hover {
+    background-color: #931ab8; 
+    color: white;
+}
+#modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    width: 400px;
+    height: 450px;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    border-radius: 16px;
+    border: none;
+    background-color: #FDEEBD;
+    border: 3px double rgb(239, 172, 13);
+    color: #4e1061;
+}
+#modal[open] {display: flex;}
+#modal::backdrop {background: rgba(0,0,0,0.5);}
+.btn-close-modal {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+.close {
+    font-size: 1.8em;
+    color: #4e1061;
+}
+#modal h1 {
+    position: absolute;
+    top: 20px;
+}
+.div-text {
+    width: 85%;
+    height: 200px;
+    background-color: #fff6da;
+    border-radius: 16px;
+    display: flex;
+    text-align: left;
+    padding: 10px;
+    position: absolute;
+    top: 100px;
+    overflow-y: auto;
+}
+.div-text pre {
+    width: 95%;
+    height: auto;
+    font-size: 1em;
+    white-space: pre-wrap;   /* preserva quebras de linha do texto, mas também quebra linhas longas */
+    word-wrap: break-word;   /* garante quebra mesmo em palavras/linhas muito compridas */
+    overflow-x: hidden;      /* remove a barra horizontal */
+}
+
+.player {
+    position: absolute;
+    bottom: 20px;
+    width: 85%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.progress-bar {
+    flex: 1;
+    height: 6px;
+    background-color: #e6d4a8;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+}
+.progress-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.time {
+    font-size: 0.75em;
+    color: #4e1061;
+    white-space: nowrap;
+    min-width: 32px;
+}
+
+#time-current {
+    text-align: right;
+}
+
+#time-total {
+    text-align: left;
+}
+
+.progress-bar {
+    flex: 1;
+    height: 20px;
+    background-color: #e6d4a8;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
+.progress-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #931ab8, #d660f5);
+    border-radius: 10px;
+    transition: width 0.15s linear;
+    z-index: 1;
+}
+
+/* waveform tipo monitor cardíaco, sobreposto à barra */
+.waveform {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    width: 100%;
+    height: 100%;
+}
+
+.waveform span {
+    display: inline-block;
+    width: 3px;
+    height: 4px;
+    background-color: rgba(78, 16, 97, 0.6);
+    border-radius: 2px;
+    animation: none;
+}
+
+/* cada barrinha "bate" em um tempo diferente, criando efeito de pulso */
+.waveform.playing span {
+    animation: heartbeat 1s ease-in-out infinite;
+}
+
+.waveform.playing span:nth-child(1) { animation-delay: 0s; }
+.waveform.playing span:nth-child(2) { animation-delay: 0.1s; }
+.waveform.playing span:nth-child(3) { animation-delay: 0.2s; }
+.waveform.playing span:nth-child(4) { animation-delay: 0.3s; }
+.waveform.playing span:nth-child(5) { animation-delay: 0.4s; }
+.waveform.playing span:nth-child(6) { animation-delay: 0.3s; }
+.waveform.playing span:nth-child(7) { animation-delay: 0.2s; }
+.waveform.playing span:nth-child(8) { animation-delay: 0.1s; }
+
+@keyframes heartbeat {
+    0%, 100% { height: 4px; }
+    50% { height: 16px; }
+}
+
+.btn-play-pause {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background-color: #931ab8;
+    border: none;
+    color: white;
+    font-size: 1.4em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 3px 10px rgba(147, 26, 184, 0.4);
+}
+
+.btn-play-pause:hover {
+    background-color: #4e1061;
+    transform: scale(1.05);
+}
+
+.btn-play-pause i {
+    /* leve ajuste pro ícone de play ficar centralizado visualmente */
+    margin-left: 2px;
+}
+
+/* ===== RESPONSIVO ===== */
+
+/* Tablets */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.2em;
+        text-align: center;
+        padding: 0 20px;
+    }
+
+    .wrap {
+        width: 90%;
+        height: 450px;
+    }
+
+    .back-card p {
+        font-size: 0.9em;
+    }
+
+    .back-card button {
+        font-size: 0.9em;
+        margin: 2px;
+    }
+
+    #modal {
+        width: 90%;
+        max-width: 400px;
+        height: 480px;
+    }
+
+    .div-text {
+        top: 90px;
+        height: 220px;
+    }
+}
+
+/* Celulares */
+@media (max-width: 480px) {
+    * {
+        font-size: 15px;
+    }
+
+    h1 {
+        font-size: 1.1em;
+        margin-top: 8%;
+    }
+
+    .wrap {
+        width: 95%;
+        height: 400px;
+        margin-top: 10px;
+    }
+
+    .wrapper {
+        padding: 10px 15px;
+    }
+
+    .big-heart {
+        font-size: 4em;
+    }
+
+    .back-card p {
+        font-size: 0.85em;
+        line-height: 1.4;
+    }
+
+    .back-card button {
+        padding: 2px 6px;
+        font-size: 0.85em;
+    }
+
+    #modal {
+        width: 92%;
+        height: 85vh;
+        max-height: 500px;
+        padding: 15px;
+    }
+
+    #modal h1 {
+        font-size: 1.1em;
+        top: 15px;
+        text-align: center;
+        width: 80%;
+    }
+
+    .div-text {
+        width: 92%;
+        top: 80px;
+        height: calc(100% - 180px);
+    }
+
+    .div-text pre {
+        font-size: 0.85em;
+        white-space: pre-wrap; /* evita quebra horizontal forçada */
+        word-wrap: break-word;
+    }
+
+    .player {
+        bottom: 15px;
+        width: 92%;
+        gap: 8px;
+    }
+
+    .progress-bar {
+        height: 18px;
+    }
+
+    .time {
+        font-size: 0.7em;
+        min-width: 28px;
+    }
+
+    .btn-play-pause {
+        width: 48px;
+        height: 48px;
+        font-size: 1.2em;
+    }
+
+    .btn-close-modal {
+        right: 12px;
+        top: 12px;
+    }
+
+    .close {
+        font-size: 1.4em;
+    }
+}
+
+/* Telas muito pequenas (celulares antigos) */
+@media (max-width: 360px) {
+    .wrap {
+        height: 380px;
+    }
+
+    .back-card p {
+        font-size: 0.78em;
+    }
+
+    #modal {
+        width: 95%;
+        padding: 10px;
+    }
+}

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cartinha</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1 id="titulo">Clique no coração para revelar seu presente!!</h1>
+    <div class="wrap">
+        <div class="wrapper">
+            <div class="back-card" id="back-card">
+                <p>
+                    Oiii princeso!! Fiz essa cartinha web 
+                    <button class="btn-open-modal modal" data-content="modal-1">Pra Você</button>
+                    e fui completamente original como pode ver &#128513;&#128540;. Cada música revela um pouco do que sinto por você e cada uma em seu contexto, 
+                    escuta tudo viu, mow trabalhão.
+                    <br>
+                    Estamos a mais de um ano juntos e isso é incrível, imagina no futuro juntos com uma 
+                    <button class="btn-open-modal modal" data-content="modal-2">White Ferrari</button>, 
+                    felizes e vivendo bem cada dia um ao lado do outro, mas 
+                    <button class="btn-open-modal" data-content="modal-3">Who Knows</button> 
+                    o que pode acontecer, só sei que sempre lembrarei 
+                    <button class="btn-open-modal" data-content="modal-4">The First Time</button> 
+                    de tudo que aconteceu entre nós.
+                    <br>
+                    Lembro das vezes que te olhei e 
+                    <button class="btn-open-modal" data-content="modal-5">Those Eyes</button> 
+                    eram tão lindos e brilhantes como 
+                    <button class="btn-open-modal" data-content="modal-6">Vagalumes</button> 
+                    que toda vez me fazia 
+                    <button class="btn-open-modal" data-content="modal-7">Te Amar Demais</button>. 
+                    Eu te amo do jeitinho que você é, você concordando ou não, sei que te amarei pela 
+                    <button class="btn-open-modal" data-content="modal-8">Eternity</button> 
+                    e você também vai, isso é 
+                    <button class="btn-open-modal" data-content="modal-9">What Makes You Beautiful</button> 
+                    pra mim, porque mostra que tudo o que passamos foi algo real.
+                    <br>
+                    Só de te ver, ver o seu sorriso, rir junto com a sua risada contagiante, já faz eu saber que será um 
+                    <button class="btn-open-modal" data-content="modal-10">Good Day</button>, 
+                    estar com você me torna uma pessoa melhor a cada dia mor, saiba que você é a 
+                    <button class="btn-open-modal" data-content="modal-11">Best Part</button> 
+                    da minha vida inteirinha!
+                    <br>
+                    Eu te amo mil milhões <span class="heart-icons" style="color: red;">&#10084;&#10084;&#10084;</span>
+                </p>
+            </div>
+
+            <div class="front-card" id="front-card">
+                <button id="btn-heart"><i class="fa-solid fa-heart big-heart"></i></button>
+            </div>
+        </div>
+
+        <dialog id="modal">
+            <button type="button" class="btn-close-modal"><i class="fa-solid fa-x close"></i></button>
+            <h1 id="modal-title"></h1>
+            <div class="div-text"><pre id="modal-text"></pre></div>
+
+            <audio id="modal-audio" preload="metadata"></audio>
+            <div class="player">
+                <div class="progress-container">
+                    <span class="time" id="time-current">0:00</span>
+
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progress-fill"></div>
+                        <div class="waveform" id="waveform">
+                            <span></span><span></span><span></span><span></span>
+                            <span></span><span></span><span></span><span></span>
+                        </div>
+                    </div>
+
+                    <span class="time" id="time-total">0:00</span>
+                </div>
+
+                <button type="button" id="btn-play-pause" class="btn-play-pause">
+                    <i class="fa-solid fa-play" id="icon-play-pause"></i>
+                </button>
+            </div>
+
+        </dialog>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
