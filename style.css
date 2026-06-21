@@ -328,6 +328,7 @@ h1 {
 
     .wrapper {
         padding: 10px 15px;
+        overflow-y: auto;
     }
 
     .big-heart {
@@ -337,6 +338,7 @@ h1 {
     .back-card p {
         font-size: 1.3em;
         line-height: 1.4;
+        text-align: justify;
     }
 
     .back-card button {
