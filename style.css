@@ -328,13 +328,13 @@ h1 {
 
     .wrapper {
         padding: 10px 15px;
-        overflow-y: auto;
     }
 
     .big-heart {
         font-size: 4em;
     }
 
+    .back-card {overflow-y: auto;}
     .back-card p {
         font-size: 1.3em;
         line-height: 1.4;
