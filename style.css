@@ -312,17 +312,17 @@ h1 {
 /* Celulares */
 @media (max-width: 480px) {
     * {
-        font-size: 15px;
+        font-size: 1em;
     }
 
     h1 {
-        font-size: 1.1em;
+        font-size: 1.2em;
         margin-top: 8%;
     }
 
     .wrap {
         width: 95%;
-        height: 400px;
+        height: auto;
         margin-top: 10px;
     }
 
@@ -335,37 +335,36 @@ h1 {
     }
 
     .back-card p {
-        font-size: 0.85em;
+        font-size: 1em;
         line-height: 1.4;
     }
 
     .back-card button {
         padding: 2px 6px;
-        font-size: 0.85em;
+        font-size: 1em;
     }
 
     #modal {
-        width: 92%;
-        height: 85vh;
-        max-height: 500px;
-        padding: 15px;
+        width: 85%;
+        height: 50vh;
+        max-height: 400px;
+        padding: 20px;
     }
 
     #modal h1 {
-        font-size: 1.1em;
+        font-size: 1.4em;
         top: 15px;
         text-align: center;
-        width: 80%;
     }
 
     .div-text {
-        width: 92%;
+        width: 85%;
         top: 80px;
-        height: calc(100% - 180px);
+        height: 50%;
     }
 
     .div-text pre {
-        font-size: 0.85em;
+        font-size: 1em;
         white-space: pre-wrap; /* evita quebra horizontal forçada */
         word-wrap: break-word;
     }
@@ -377,18 +376,18 @@ h1 {
     }
 
     .progress-bar {
-        height: 18px;
+        height: 22px;
     }
 
     .time {
-        font-size: 0.7em;
+        font-size: 0.8em;
         min-width: 28px;
     }
 
     .btn-play-pause {
-        width: 48px;
-        height: 48px;
-        font-size: 1.2em;
+        width: 52px;
+        height: 52px;
+        font-size: 1.3em;
     }
 
     .btn-close-modal {
@@ -397,22 +396,6 @@ h1 {
     }
 
     .close {
-        font-size: 1.4em;
-    }
-}
-
-/* Telas muito pequenas (celulares antigos) */
-@media (max-width: 360px) {
-    .wrap {
-        height: 380px;
-    }
-
-    .back-card p {
-        font-size: 0.78em;
-    }
-
-    #modal {
-        width: 95%;
-        padding: 10px;
+        font-size: 2em;
     }
 }
