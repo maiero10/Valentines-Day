@@ -316,13 +316,13 @@ h1 {
     }
 
     h1 {
-        font-size: 1.2em;
+        font-size: 1.8em;
         margin-top: 8%;
     }
 
     .wrap {
         width: 95%;
-        height: 90vh;
+        height: 80vh;
         margin-top: 10px;
     }
 
@@ -335,7 +335,7 @@ h1 {
     }
 
     .back-card p {
-        font-size: 1em;
+        font-size: 1.3em;
         line-height: 1.4;
     }
 
@@ -345,7 +345,7 @@ h1 {
     }
 
     #modal {
-        width: 85%;
+        width: 80%;
         height: 50vh;
         max-height: 400px;
         padding: 20px;
@@ -364,7 +364,7 @@ h1 {
     }
 
     .div-text pre {
-        font-size: 1em;
+        font-size: 1.3em;
         white-space: pre-wrap; /* evita quebra horizontal forçada */
         word-wrap: break-word;
     }
