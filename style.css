@@ -279,6 +279,7 @@ h1 {
     h1 {
         font-size: 1.8em;
         margin-top: 8%;
+        align-items: center;
     }
 
     .wrap {
@@ -296,6 +297,7 @@ h1 {
     }
 
     .back-card {
+        height: 100%;
         overflow-y: auto;
         align-items: flex-start;
         justify-content: flex-start;
@@ -303,7 +305,7 @@ h1 {
     }
     .back-card p {
         font-size: 1.3em;
-        height: auto;
+        height: 100%;
         margin: 10px 0;
         line-height: 1.4;
         text-align: justify;
