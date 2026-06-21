@@ -49,14 +49,18 @@ h1 {
     color: red;
     cursor: pointer;
     transition: all 0.3s ease;
+    z-index: 2;
 }
 .big-heart:hover {
     font-size: 8em;
     color: rgb(255, 66, 66);
 }
 #btn-heart {
+    width: 150px;
+    height: auto;
     background-color: transparent;
     border: none;
+    z-index: 1;
 }
 .front-card, .back-card {
     position: absolute;
