@@ -59,6 +59,7 @@ h1 {
     text-align: center;
     background-color: transparent;
     border-radius: 30px;
+    overflow: hidden;
     padding: 10px 25px;
     display: flex;
     align-items: center;
@@ -85,6 +86,12 @@ h1 {
 .back-card button:hover {
     background-color: #931ab8; 
     color: white;
+}
+.back-card-scroll {
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    padding: 20px 15px;
 }
 #modal {
     position: fixed;
@@ -305,7 +312,7 @@ h1 {
     }
     .back-card p {
         font-size: 1.3em;
-        height: 100%;
+        height: auto;
         margin: 10px 0;
         line-height: 1.4;
         text-align: justify;
@@ -315,6 +322,10 @@ h1 {
     .back-card button {
         padding: 2px 6px;
         font-size: 1em;
+    }
+    .back-card-scroll {
+        overflow-y: auto;
+        padding: 20px 15px;
     }
 
     #modal {
