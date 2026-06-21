@@ -295,13 +295,19 @@ h1 {
         font-size: 10em;
     }
 
-    .back-card {overflow-y: auto;}
+    .back-card {
+        overflow-y: auto;
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding: 20px 15px;
+    }
     .back-card p {
         font-size: 1.3em;
         height: auto;
         margin: 10px 0;
         line-height: 1.4;
         text-align: justify;
+        padding-bottom: 20px;
     }
 
     .back-card button {
